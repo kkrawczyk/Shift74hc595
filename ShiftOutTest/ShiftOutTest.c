@@ -35,6 +35,11 @@
 	eeprom_write_byte(&sstate, rand());
 }*/
 
+/** project pinology
+ATTINY:
+	4 -> GND
+	8 -> VDD
+**/
 int main(void)
 {
 	initLcd();
