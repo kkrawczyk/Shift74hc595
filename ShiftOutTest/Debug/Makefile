@@ -38,6 +38,8 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ByteOperations.c \
+../LCDShift.c \
+../Shift74hc595.c \
 ../ShiftOutTest.c
 
 
@@ -49,18 +51,26 @@ ASM_SRCS +=
 
 OBJS +=  \
 ByteOperations.o \
+LCDShift.o \
+Shift74hc595.o \
 ShiftOutTest.o
 
 OBJS_AS_ARGS +=  \
 ByteOperations.o \
+LCDShift.o \
+Shift74hc595.o \
 ShiftOutTest.o
 
 C_DEPS +=  \
 ByteOperations.d \
+LCDShift.d \
+Shift74hc595.d \
 ShiftOutTest.d
 
 C_DEPS_AS_ARGS +=  \
 ByteOperations.d \
+LCDShift.d \
+Shift74hc595.d \
 ShiftOutTest.d
 
 OUTPUT_FILE_PATH +=ShiftOutTest.elf
@@ -77,6 +87,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
