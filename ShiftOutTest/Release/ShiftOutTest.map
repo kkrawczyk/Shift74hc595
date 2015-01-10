@@ -2,15 +2,19 @@ Archive member included because of file (symbol)
 
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o (exit)
+c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+                              LCDShift.o (__do_copy_data)
 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
                               LCDShift.o (__do_clear_bss)
 
 Allocating common symbols
 Common symbol       size              file
 
+lcdDisplayMode      0x1               LCDShift.o
 lcdFunctions        0x1               LCDShift.o
 lcdCurrentLine      0x1               LCDShift.o
 lcdCurrentPins      0x1               LCDShift.o
+lcdDisplayControl   0x1               LCDShift.o
 
 Discarded input sections
 
@@ -22,7 +26,11 @@ Discarded input sections
  .text          0x00000000        0x0 LCDShift.o
  .data          0x00000000        0x0 LCDShift.o
  .bss           0x00000000        0x0 LCDShift.o
- .text.lcdSend  0x00000000        0xa LCDShift.o
+ .text.lcdWrite
+                0x00000000        0x4 LCDShift.o
+ .rodata        0x00000000        0x8 LCDShift.o
+ .text.lcdSetCursor
+                0x00000000       0x58 LCDShift.o
  .text          0x00000000        0x0 Shift74hc595.o
  .data          0x00000000        0x0 Shift74hc595.o
  .bss           0x00000000        0x0 Shift74hc595.o
@@ -45,6 +53,22 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
@@ -180,7 +204,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x140
+.text           0x00000000      0x248
  *(.vectors)
  .vectors       0x00000000       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
                 0x00000000                __vector_default
@@ -219,8 +243,10 @@ END GROUP
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000002a       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
-                0x0000002a                __do_clear_bss
+ .init4         0x0000002a       0x16 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_copy_data.o)
+                0x0000002a                __do_copy_data
+ .init4         0x00000040       0x10 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_clear_bss.o)
+                0x00000040                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -231,61 +257,84 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000003a        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
+ .init9         0x00000050        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
  *(.init9)
  *(.text)
- .text          0x0000003e        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
-                0x0000003e                __vector_1
-                0x0000003e                __vector_12
-                0x0000003e                __bad_interrupt
-                0x0000003e                __vector_6
-                0x0000003e                __vector_3
-                0x0000003e                __vector_11
-                0x0000003e                __vector_13
-                0x0000003e                __vector_7
-                0x0000003e                __vector_5
-                0x0000003e                __vector_4
-                0x0000003e                __vector_9
-                0x0000003e                __vector_2
-                0x0000003e                __vector_8
-                0x0000003e                __vector_14
-                0x0000003e                __vector_10
-                0x00000040                . = ALIGN (0x2)
+ .text          0x00000054        0x2 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
+                0x00000054                __vector_1
+                0x00000054                __vector_12
+                0x00000054                __bad_interrupt
+                0x00000054                __vector_6
+                0x00000054                __vector_3
+                0x00000054                __vector_11
+                0x00000054                __vector_13
+                0x00000054                __vector_7
+                0x00000054                __vector_5
+                0x00000054                __vector_4
+                0x00000054                __vector_9
+                0x00000054                __vector_2
+                0x00000054                __vector_8
+                0x00000054                __vector_14
+                0x00000054                __vector_10
+                0x00000056                . = ALIGN (0x2)
  *(.text.*)
  .text.getNthByte
-                0x00000040       0x1e ByteOperations.o
-                0x00000040                getNthByte
+                0x00000056       0x1e ByteOperations.o
+                0x00000056                getNthByte
  .text.setNthByteHigh
-                0x0000005e       0x18 ByteOperations.o
-                0x0000005e                setNthByteHigh
+                0x00000074       0x18 ByteOperations.o
+                0x00000074                setNthByteHigh
  .text.setNthByteLow
-                0x00000076       0x1a ByteOperations.o
-                0x00000076                setNthByteLow
+                0x0000008c       0x1a ByteOperations.o
+                0x0000008c                setNthByteLow
  .text.setLcdFunctions
-                0x00000090        0xc LCDShift.o
-                0x00000090                setLcdFunctions
+                0x000000a6        0xc LCDShift.o
+                0x000000a6                setLcdFunctions
  .text.setLcdPin
-                0x0000009c       0x1c LCDShift.o
-                0x0000009c                setLcdPin
- .text.initLcd  0x000000b8       0x30 LCDShift.o
-                0x000000b8                initLcd
+                0x000000b2       0x1c LCDShift.o
+                0x000000b2                setLcdPin
+ .text.lcdPulseEnable
+                0x000000ce       0x20 LCDShift.o
+                0x000000ce                lcdPulseEnable
+ .text.lcdWrite4Bits
+                0x000000ee       0x4a LCDShift.o
+                0x000000ee                lcdWrite4Bits
+ .text.lcdSend  0x00000138       0x1c LCDShift.o
+                0x00000138                lcdSend
+ .text.lcdCommand
+                0x00000154        0x4 LCDShift.o
+                0x00000154                lcdCommand
+ .text.lcdClear
+                0x00000158       0x12 LCDShift.o
+                0x00000158                lcdClear
+ .text.lcdDisplay
+                0x0000016a       0x10 LCDShift.o
+                0x0000016a                lcdDisplay
+ .text.lcdSendOnly4
+                0x0000017a       0x18 LCDShift.o
+                0x0000017a                lcdSendOnly4
+ .text.lcdCommand4bit
+                0x00000192        0x4 LCDShift.o
+                0x00000192                lcdCommand4bit
+ .text.initLcd  0x00000196       0x5c LCDShift.o
+                0x00000196                initLcd
  .text.initShift
-                0x000000e8        0xe Shift74hc595.o
-                0x000000e8                initShift
+                0x000001f2        0xe Shift74hc595.o
+                0x000001f2                initShift
  .text.writeBytesRCLK
-                0x000000f6       0x3a Shift74hc595.o
-                0x000000f6                writeBytesRCLK
+                0x00000200       0x3a Shift74hc595.o
+                0x00000200                writeBytesRCLK
  .text.writeBytes
-                0x00000130        0x4 Shift74hc595.o
-                0x00000130                writeBytes
+                0x0000023a        0x4 Shift74hc595.o
+                0x0000023a                writeBytes
  .text.startup.main
-                0x00000134        0x8 ShiftOutTest.o
-                0x00000134                main
-                0x0000013c                . = ALIGN (0x2)
+                0x0000023e        0x6 ShiftOutTest.o
+                0x0000023e                main
+                0x00000244                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000013c        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
-                0x0000013c                _exit
-                0x0000013c                exit
+ .fini9         0x00000244        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
+                0x00000244                _exit
+                0x00000244                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -304,11 +353,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000013c        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
+ .fini0         0x00000244        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000140                _etext = .
+                0x00000248                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000140
+.data           0x00800060        0x0 load address 0x00000248
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -319,25 +368,27 @@ END GROUP
                 0x00800060                _edata = .
                 0x00800060                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x3
+.bss            0x00800060        0x5
                 0x00800060                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
- COMMON         0x00800060        0x3 LCDShift.o
-                0x00800060                lcdFunctions
-                0x00800061                lcdCurrentLine
-                0x00800062                lcdCurrentPins
-                0x00800063                PROVIDE (__bss_end, .)
-                0x00000140                __data_load_start = LOADADDR (.data)
-                0x00000140                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800060        0x5 LCDShift.o
+                0x00800060                lcdDisplayMode
+                0x00800061                lcdFunctions
+                0x00800062                lcdCurrentLine
+                0x00800063                lcdCurrentPins
+                0x00800064                lcdDisplayControl
+                0x00800065                PROVIDE (__bss_end, .)
+                0x00000248                __data_load_start = LOADADDR (.data)
+                0x00000248                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800063        0x0
-                0x00800063                PROVIDE (__noinit_start, .)
+.noinit         0x00800065        0x0
+                0x00800065                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800063                PROVIDE (__noinit_end, .)
-                0x00800063                _end = .
-                0x00800063                PROVIDE (__heap_start, .)
+                0x00800065                PROVIDE (__noinit_end, .)
+                0x00800065                _end = .
+                0x00800065                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

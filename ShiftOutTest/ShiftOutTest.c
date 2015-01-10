@@ -38,7 +38,11 @@
 int main(void)
 {
 	initLcd();
-	lcdWrite4Bits(128);
+	//initShift();
+	while(1){
+		asm ("nop");
+	}
+	//lcdWrite4Bits(128);
 	//initRand();
 	/*initShift();
 	initLcd();
@@ -47,5 +51,5 @@ int main(void)
 		writeBytes(63);
 		_delay_ms(1000);
 	}*/
-	return 0;
+	//return 0;
 }

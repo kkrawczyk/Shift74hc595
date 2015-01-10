@@ -3,47 +3,47 @@ ShiftOutTest.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000001e2  00000000  00000000  00000074  2**1
+  0 .text         0000028c  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          00000003  00800060  00800060  00000256  2**0
+  1 .bss          00000005  00800060  00800060  00000300  2**0
                   ALLOC
-  2 .comment      00000030  00000000  00000000  00000256  2**0
+  2 .comment      00000030  00000000  00000000  00000300  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 000000c8  00000000  00000000  00000286  2**0
+  3 .debug_aranges 00000100  00000000  00000000  00000330  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   0000090a  00000000  00000000  0000034e  2**0
+  4 .debug_info   00000c5e  00000000  00000000  00000430  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000431  00000000  00000000  00000c58  2**0
+  5 .debug_abbrev 0000041b  00000000  00000000  0000108e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000484  00000000  00000000  00001089  2**0
+  6 .debug_line   00000525  00000000  00000000  000014a9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000164  00000000  00000000  00001510  2**2
+  7 .debug_frame  000001d4  00000000  00000000  000019d0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    000002bf  00000000  00000000  00001674  2**0
+  8 .debug_str    0000034f  00000000  00000000  00001ba4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    00000387  00000000  00000000  00001933  2**0
+  9 .debug_loc    000004d1  00000000  00000000  00001ef3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000088  00000000  00000000  00001cba  2**0
+ 10 .debug_ranges 000000c0  00000000  00000000  000023c4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0e c0       	rjmp	.+28     	; 0x1e <__ctors_end>
-   2:	1d c0       	rjmp	.+58     	; 0x3e <__bad_interrupt>
-   4:	1c c0       	rjmp	.+56     	; 0x3e <__bad_interrupt>
-   6:	1b c0       	rjmp	.+54     	; 0x3e <__bad_interrupt>
-   8:	1a c0       	rjmp	.+52     	; 0x3e <__bad_interrupt>
-   a:	19 c0       	rjmp	.+50     	; 0x3e <__bad_interrupt>
-   c:	18 c0       	rjmp	.+48     	; 0x3e <__bad_interrupt>
-   e:	17 c0       	rjmp	.+46     	; 0x3e <__bad_interrupt>
-  10:	16 c0       	rjmp	.+44     	; 0x3e <__bad_interrupt>
-  12:	15 c0       	rjmp	.+42     	; 0x3e <__bad_interrupt>
-  14:	14 c0       	rjmp	.+40     	; 0x3e <__bad_interrupt>
-  16:	13 c0       	rjmp	.+38     	; 0x3e <__bad_interrupt>
-  18:	12 c0       	rjmp	.+36     	; 0x3e <__bad_interrupt>
-  1a:	11 c0       	rjmp	.+34     	; 0x3e <__bad_interrupt>
-  1c:	10 c0       	rjmp	.+32     	; 0x3e <__bad_interrupt>
+   2:	28 c0       	rjmp	.+80     	; 0x54 <__bad_interrupt>
+   4:	27 c0       	rjmp	.+78     	; 0x54 <__bad_interrupt>
+   6:	26 c0       	rjmp	.+76     	; 0x54 <__bad_interrupt>
+   8:	25 c0       	rjmp	.+74     	; 0x54 <__bad_interrupt>
+   a:	24 c0       	rjmp	.+72     	; 0x54 <__bad_interrupt>
+   c:	23 c0       	rjmp	.+70     	; 0x54 <__bad_interrupt>
+   e:	22 c0       	rjmp	.+68     	; 0x54 <__bad_interrupt>
+  10:	21 c0       	rjmp	.+66     	; 0x54 <__bad_interrupt>
+  12:	20 c0       	rjmp	.+64     	; 0x54 <__bad_interrupt>
+  14:	1f c0       	rjmp	.+62     	; 0x54 <__bad_interrupt>
+  16:	1e c0       	rjmp	.+60     	; 0x54 <__bad_interrupt>
+  18:	1d c0       	rjmp	.+58     	; 0x54 <__bad_interrupt>
+  1a:	1c c0       	rjmp	.+56     	; 0x54 <__bad_interrupt>
+  1c:	1b c0       	rjmp	.+54     	; 0x54 <__bad_interrupt>
 
 0000001e <__ctors_end>:
   1e:	11 24       	eor	r1, r1
@@ -53,413 +53,566 @@ Disassembly of section .text:
   26:	de bf       	out	0x3e, r29	; 62
   28:	cd bf       	out	0x3d, r28	; 61
 
-0000002a <__do_clear_bss>:
-  2a:	20 e0       	ldi	r18, 0x00	; 0
+0000002a <__do_copy_data>:
+  2a:	10 e0       	ldi	r17, 0x00	; 0
   2c:	a0 e6       	ldi	r26, 0x60	; 96
   2e:	b0 e0       	ldi	r27, 0x00	; 0
-  30:	01 c0       	rjmp	.+2      	; 0x34 <.do_clear_bss_start>
+  30:	ec e8       	ldi	r30, 0x8C	; 140
+  32:	f2 e0       	ldi	r31, 0x02	; 2
+  34:	02 c0       	rjmp	.+4      	; 0x3a <__do_copy_data+0x10>
+  36:	05 90       	lpm	r0, Z+
+  38:	0d 92       	st	X+, r0
+  3a:	a0 36       	cpi	r26, 0x60	; 96
+  3c:	b1 07       	cpc	r27, r17
+  3e:	d9 f7       	brne	.-10     	; 0x36 <__do_copy_data+0xc>
 
-00000032 <.do_clear_bss_loop>:
-  32:	1d 92       	st	X+, r1
+00000040 <__do_clear_bss>:
+  40:	20 e0       	ldi	r18, 0x00	; 0
+  42:	a0 e6       	ldi	r26, 0x60	; 96
+  44:	b0 e0       	ldi	r27, 0x00	; 0
+  46:	01 c0       	rjmp	.+2      	; 0x4a <.do_clear_bss_start>
 
-00000034 <.do_clear_bss_start>:
-  34:	a3 36       	cpi	r26, 0x63	; 99
-  36:	b2 07       	cpc	r27, r18
-  38:	e1 f7       	brne	.-8      	; 0x32 <.do_clear_bss_loop>
-  3a:	cb d0       	rcall	.+406    	; 0x1d2 <main>
-  3c:	d0 c0       	rjmp	.+416    	; 0x1de <_exit>
+00000048 <.do_clear_bss_loop>:
+  48:	1d 92       	st	X+, r1
 
-0000003e <__bad_interrupt>:
-  3e:	e0 cf       	rjmp	.-64     	; 0x0 <__vectors>
+0000004a <.do_clear_bss_start>:
+  4a:	a5 36       	cpi	r26, 0x65	; 101
+  4c:	b2 07       	cpc	r27, r18
+  4e:	e1 f7       	brne	.-8      	; 0x48 <.do_clear_bss_loop>
+  50:	18 d1       	rcall	.+560    	; 0x282 <main>
+  52:	1a c1       	rjmp	.+564    	; 0x288 <_exit>
 
-00000040 <getNthByte>:
+00000054 <__bad_interrupt>:
+  54:	d5 cf       	rjmp	.-86     	; 0x0 <__vectors>
+
+00000056 <getNthByte>:
  */ 
 
 #include "ByteOperations.h"
 
 uint8_t getNthByte(uint8_t number, uint8_t bit){
 	uint8_t masked_n = number & (1 << bit);
-  40:	21 e0       	ldi	r18, 0x01	; 1
-  42:	30 e0       	ldi	r19, 0x00	; 0
-  44:	06 2e       	mov	r0, r22
-  46:	02 c0       	rjmp	.+4      	; 0x4c <getNthByte+0xc>
-  48:	22 0f       	add	r18, r18
-  4a:	33 1f       	adc	r19, r19
-  4c:	0a 94       	dec	r0
-  4e:	e2 f7       	brpl	.-8      	; 0x48 <getNthByte+0x8>
-  50:	82 23       	and	r24, r18
+  56:	21 e0       	ldi	r18, 0x01	; 1
+  58:	30 e0       	ldi	r19, 0x00	; 0
+  5a:	06 2e       	mov	r0, r22
+  5c:	02 c0       	rjmp	.+4      	; 0x62 <getNthByte+0xc>
+  5e:	22 0f       	add	r18, r18
+  60:	33 1f       	adc	r19, r19
+  62:	0a 94       	dec	r0
+  64:	e2 f7       	brpl	.-8      	; 0x5e <getNthByte+0x8>
+  66:	82 23       	and	r24, r18
 	return masked_n >> bit;
-  52:	28 2f       	mov	r18, r24
-  54:	30 e0       	ldi	r19, 0x00	; 0
-  56:	c9 01       	movw	r24, r18
-  58:	02 c0       	rjmp	.+4      	; 0x5e <getNthByte+0x1e>
-  5a:	95 95       	asr	r25
-  5c:	87 95       	ror	r24
-  5e:	6a 95       	dec	r22
-  60:	e2 f7       	brpl	.-8      	; 0x5a <getNthByte+0x1a>
+  68:	28 2f       	mov	r18, r24
+  6a:	30 e0       	ldi	r19, 0x00	; 0
+  6c:	c9 01       	movw	r24, r18
+  6e:	02 c0       	rjmp	.+4      	; 0x74 <getNthByte+0x1e>
+  70:	95 95       	asr	r25
+  72:	87 95       	ror	r24
+  74:	6a 95       	dec	r22
+  76:	e2 f7       	brpl	.-8      	; 0x70 <getNthByte+0x1a>
 }
-  62:	08 95       	ret
+  78:	08 95       	ret
 
-00000064 <setNthByteHigh>:
+0000007a <setNthByteHigh>:
 
 void setNthByteHigh(uint8_t *number, uint8_t bit){
 	*number = (uint8_t)*number |1 << bit;
-  64:	21 e0       	ldi	r18, 0x01	; 1
-  66:	30 e0       	ldi	r19, 0x00	; 0
-  68:	a9 01       	movw	r20, r18
-  6a:	02 c0       	rjmp	.+4      	; 0x70 <setNthByteHigh+0xc>
-  6c:	44 0f       	add	r20, r20
-  6e:	55 1f       	adc	r21, r21
-  70:	6a 95       	dec	r22
-  72:	e2 f7       	brpl	.-8      	; 0x6c <setNthByteHigh+0x8>
-  74:	ba 01       	movw	r22, r20
-  76:	fc 01       	movw	r30, r24
-  78:	20 81       	ld	r18, Z
-  7a:	62 2b       	or	r22, r18
-  7c:	60 83       	st	Z, r22
-  7e:	08 95       	ret
+  7a:	21 e0       	ldi	r18, 0x01	; 1
+  7c:	30 e0       	ldi	r19, 0x00	; 0
+  7e:	a9 01       	movw	r20, r18
+  80:	02 c0       	rjmp	.+4      	; 0x86 <setNthByteHigh+0xc>
+  82:	44 0f       	add	r20, r20
+  84:	55 1f       	adc	r21, r21
+  86:	6a 95       	dec	r22
+  88:	e2 f7       	brpl	.-8      	; 0x82 <setNthByteHigh+0x8>
+  8a:	ba 01       	movw	r22, r20
+  8c:	fc 01       	movw	r30, r24
+  8e:	20 81       	ld	r18, Z
+  90:	62 2b       	or	r22, r18
+  92:	60 83       	st	Z, r22
+  94:	08 95       	ret
 
-00000080 <setNthByteLow>:
+00000096 <setNthByteLow>:
 }
 
 void setNthByteLow(uint8_t *number, uint8_t bit){
 	*number = (uint8_t)*number & ~(1 << bit);
-  80:	21 e0       	ldi	r18, 0x01	; 1
-  82:	30 e0       	ldi	r19, 0x00	; 0
-  84:	a9 01       	movw	r20, r18
-  86:	02 c0       	rjmp	.+4      	; 0x8c <setNthByteLow+0xc>
-  88:	44 0f       	add	r20, r20
-  8a:	55 1f       	adc	r21, r21
-  8c:	6a 95       	dec	r22
-  8e:	e2 f7       	brpl	.-8      	; 0x88 <setNthByteLow+0x8>
-  90:	ba 01       	movw	r22, r20
-  92:	60 95       	com	r22
-  94:	fc 01       	movw	r30, r24
-  96:	20 81       	ld	r18, Z
-  98:	62 23       	and	r22, r18
-  9a:	60 83       	st	Z, r22
-  9c:	08 95       	ret
+  96:	21 e0       	ldi	r18, 0x01	; 1
+  98:	30 e0       	ldi	r19, 0x00	; 0
+  9a:	a9 01       	movw	r20, r18
+  9c:	02 c0       	rjmp	.+4      	; 0xa2 <setNthByteLow+0xc>
+  9e:	44 0f       	add	r20, r20
+  a0:	55 1f       	adc	r21, r21
+  a2:	6a 95       	dec	r22
+  a4:	e2 f7       	brpl	.-8      	; 0x9e <setNthByteLow+0x8>
+  a6:	ba 01       	movw	r22, r20
+  a8:	60 95       	com	r22
+  aa:	fc 01       	movw	r30, r24
+  ac:	20 81       	ld	r18, Z
+  ae:	62 23       	and	r22, r18
+  b0:	60 83       	st	Z, r22
+  b2:	08 95       	ret
 
-0000009e <setLcdFunctions>:
-	setLcdPin(LCD_RW,0x00);
-	setLcdPin(LCD_ENABLE,0x00);
+000000b4 <setLcdFunctions>:
+	
+	lcdCommand(LCD_SETDDRAMADDR | (col + row_offsets[row]));
 }
 
 void setLcdFunctions(uint8_t func){
 	lcdFunctions |= func;
-  9e:	90 91 60 00 	lds	r25, 0x0060
-  a2:	89 2b       	or	r24, r25
-  a4:	80 93 60 00 	sts	0x0060, r24
-  a8:	08 95       	ret
+  b4:	90 91 61 00 	lds	r25, 0x0061
+  b8:	89 2b       	or	r24, r25
+  ba:	80 93 61 00 	sts	0x0061, r24
+  be:	08 95       	ret
 
-000000aa <setLcdPin>:
+000000c0 <setLcdPin>:
 }
 
 void setLcdPin(uint8_t pin,uint8_t val){
 	if(val==0){
-  aa:	61 11       	cpse	r22, r1
-  ac:	05 c0       	rjmp	.+10     	; 0xb8 <setLcdPin+0xe>
+  c0:	61 11       	cpse	r22, r1
+  c2:	05 c0       	rjmp	.+10     	; 0xce <setLcdPin+0xe>
 		setNthByteLow(&lcdCurrentPins,pin);
-  ae:	68 2f       	mov	r22, r24
-  b0:	82 e6       	ldi	r24, 0x62	; 98
-  b2:	90 e0       	ldi	r25, 0x00	; 0
-  b4:	e5 df       	rcall	.-54     	; 0x80 <setNthByteLow>
-  b6:	04 c0       	rjmp	.+8      	; 0xc0 <setLcdPin+0x16>
-	}else{
+  c4:	68 2f       	mov	r22, r24
+  c6:	83 e6       	ldi	r24, 0x63	; 99
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	e5 df       	rcall	.-54     	; 0x96 <setNthByteLow>
+  cc:	04 c0       	rjmp	.+8      	; 0xd6 <setLcdPin+0x16>
+		}else{
 		setNthByteHigh(&lcdCurrentPins,pin);
-  b8:	68 2f       	mov	r22, r24
-  ba:	82 e6       	ldi	r24, 0x62	; 98
-  bc:	90 e0       	ldi	r25, 0x00	; 0
-  be:	d2 df       	rcall	.-92     	; 0x64 <setNthByteHigh>
+  ce:	68 2f       	mov	r22, r24
+  d0:	83 e6       	ldi	r24, 0x63	; 99
+  d2:	90 e0       	ldi	r25, 0x00	; 0
+  d4:	d2 df       	rcall	.-92     	; 0x7a <setNthByteHigh>
 	}
 	writeBytes(lcdCurrentPins);
-  c0:	80 91 62 00 	lds	r24, 0x0062
-  c4:	83 d0       	rcall	.+262    	; 0x1cc <writeBytes>
-  c6:	08 95       	ret
+  d6:	80 91 63 00 	lds	r24, 0x0063
+  da:	d0 d0       	rcall	.+416    	; 0x27c <writeBytes>
+  dc:	08 95       	ret
 
-000000c8 <initLcd>:
- */ 
+000000de <lcdPulseEnable>:
+	//}
+	lcdPulseEnable();
+}
 
-#include "LCDShift.h"
-
-void initLcd(){
-	initShift();
-  c8:	5a d0       	rcall	.+180    	; 0x17e <initShift>
-	lcdFunctions = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
-  ca:	10 92 60 00 	sts	0x0060, r1
-	lcdCurrentPins = 0x00;
-  ce:	10 92 62 00 	sts	0x0062, r1
-	lcdCurrentLine = 0;
-  d2:	10 92 61 00 	sts	0x0061, r1
-	setLcdFunctions(LCD_2LINE);
-  d6:	88 e0       	ldi	r24, 0x08	; 8
-  d8:	e2 df       	rcall	.-60     	; 0x9e <setLcdFunctions>
+void lcdPulseEnable(){
+	setLcdPin(LCD_ENABLE,0);
+  de:	60 e0       	ldi	r22, 0x00	; 0
+  e0:	85 e0       	ldi	r24, 0x05	; 5
+  e2:	ee df       	rcall	.-36     	; 0xc0 <setLcdPin>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  da:	8f e2       	ldi	r24, 0x2F	; 47
-  dc:	95 e7       	ldi	r25, 0x75	; 117
-  de:	01 97       	sbiw	r24, 0x01	; 1
-  e0:	f1 f7       	brne	.-4      	; 0xde <initLcd+0x16>
-  e2:	00 c0       	rjmp	.+0      	; 0xe4 <initLcd+0x1c>
-  e4:	00 00       	nop
+  e4:	00 c0       	rjmp	.+0      	; 0xe6 <lcdPulseEnable+0x8>
+	_delay_us(1); //Recomended - none
+	setLcdPin(LCD_ENABLE,1);
+  e6:	61 e0       	ldi	r22, 0x01	; 1
+  e8:	85 e0       	ldi	r24, 0x05	; 5
+  ea:	ea df       	rcall	.-44     	; 0xc0 <setLcdPin>
+  ec:	00 c0       	rjmp	.+0      	; 0xee <lcdPulseEnable+0x10>
+	_delay_us(1); //Recomended - > 450ns
+	setLcdPin(LCD_ENABLE,0);
+  ee:	60 e0       	ldi	r22, 0x00	; 0
+  f0:	85 e0       	ldi	r24, 0x05	; 5
+  f2:	e6 df       	rcall	.-52     	; 0xc0 <setLcdPin>
+  f4:	88 e2       	ldi	r24, 0x28	; 40
+  f6:	8a 95       	dec	r24
+  f8:	f1 f7       	brne	.-4      	; 0xf6 <lcdPulseEnable+0x18>
+  fa:	00 00       	nop
+  fc:	08 95       	ret
+
+000000fe <lcdWrite4Bits>:
+	setLcdPin(LCD_RW,0);
+	lcdWrite4Bits(value>>4);
+	//lcdWrite4Bits(value);
+}
+
+void lcdWrite4Bits(uint8_t value){
+  fe:	0f 93       	push	r16
+ 100:	1f 93       	push	r17
+ 102:	cf 93       	push	r28
+ 104:	df 93       	push	r29
+ 106:	c8 2f       	mov	r28, r24
+	uint8_t byte0 = getNthByte(value,0);
+ 108:	60 e0       	ldi	r22, 0x00	; 0
+ 10a:	a5 df       	rcall	.-182    	; 0x56 <getNthByte>
+ 10c:	08 2f       	mov	r16, r24
+	uint8_t byte1 = getNthByte(value,1);
+ 10e:	61 e0       	ldi	r22, 0x01	; 1
+ 110:	8c 2f       	mov	r24, r28
+ 112:	a1 df       	rcall	.-190    	; 0x56 <getNthByte>
+ 114:	18 2f       	mov	r17, r24
+	uint8_t byte2 = getNthByte(value,2);
+ 116:	62 e0       	ldi	r22, 0x02	; 2
+ 118:	8c 2f       	mov	r24, r28
+ 11a:	9d df       	rcall	.-198    	; 0x56 <getNthByte>
+ 11c:	d8 2f       	mov	r29, r24
+	uint8_t byte3 = getNthByte(value,3);
+ 11e:	63 e0       	ldi	r22, 0x03	; 3
+ 120:	8c 2f       	mov	r24, r28
+ 122:	99 df       	rcall	.-206    	; 0x56 <getNthByte>
+ 124:	c8 2f       	mov	r28, r24
+	setLcdPin(LCD_D4,byte0);
+ 126:	60 2f       	mov	r22, r16
+ 128:	84 e0       	ldi	r24, 0x04	; 4
+ 12a:	ca df       	rcall	.-108    	; 0xc0 <setLcdPin>
+	setLcdPin(LCD_D5,byte1);
+ 12c:	61 2f       	mov	r22, r17
+ 12e:	83 e0       	ldi	r24, 0x03	; 3
+ 130:	c7 df       	rcall	.-114    	; 0xc0 <setLcdPin>
+	setLcdPin(LCD_D6,byte2);
+ 132:	6d 2f       	mov	r22, r29
+ 134:	82 e0       	ldi	r24, 0x02	; 2
+ 136:	c4 df       	rcall	.-120    	; 0xc0 <setLcdPin>
+	setLcdPin(LCD_D7,byte3);
+ 138:	6c 2f       	mov	r22, r28
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	c1 df       	rcall	.-126    	; 0xc0 <setLcdPin>
+	//1 -> D5
+	//2 -> D6
+	//3 -> D7
+	//digitalWrite(_data_pins[i], (value >> i) & 0x01);
+	//}
+	lcdPulseEnable();
+ 13e:	cf df       	rcall	.-98     	; 0xde <lcdPulseEnable>
+}
+ 140:	df 91       	pop	r29
+ 142:	cf 91       	pop	r28
+ 144:	1f 91       	pop	r17
+ 146:	0f 91       	pop	r16
+ 148:	08 95       	ret
+
+0000014a <lcdSend>:
+}
+void lcdCommand(uint8_t value){
+	lcdSend(value, 0);
+}
+
+void lcdSend(uint8_t value, uint8_t mode){
+ 14a:	cf 93       	push	r28
+ 14c:	c8 2f       	mov	r28, r24
+	setLcdPin(LCD_RS,mode);
+ 14e:	87 e0       	ldi	r24, 0x07	; 7
+ 150:	b7 df       	rcall	.-146    	; 0xc0 <setLcdPin>
+	setLcdPin(LCD_RW,0);
+ 152:	60 e0       	ldi	r22, 0x00	; 0
+ 154:	86 e0       	ldi	r24, 0x06	; 6
+ 156:	b4 df       	rcall	.-152    	; 0xc0 <setLcdPin>
+	lcdWrite4Bits(value>>4);
+ 158:	8c 2f       	mov	r24, r28
+ 15a:	82 95       	swap	r24
+ 15c:	8f 70       	andi	r24, 0x0F	; 15
+ 15e:	cf df       	rcall	.-98     	; 0xfe <lcdWrite4Bits>
+	lcdWrite4Bits(value);
+ 160:	8c 2f       	mov	r24, r28
+ 162:	cd df       	rcall	.-102    	; 0xfe <lcdWrite4Bits>
+}
+ 164:	cf 91       	pop	r28
+ 166:	08 95       	ret
+
+00000168 <lcdCommand>:
+
+void lcdCommand4bit(uint8_t value){
+	lcdSendOnly4(value,0);
+}
+void lcdCommand(uint8_t value){
+	lcdSend(value, 0);
+ 168:	60 e0       	ldi	r22, 0x00	; 0
+ 16a:	ef df       	rcall	.-34     	; 0x14a <lcdSend>
+ 16c:	08 95       	ret
+
+0000016e <lcdClear>:
+	writeBytes(lcdCurrentPins);
+	//_delay_ms(1000);
+}
+
+void lcdClear(){
+	lcdCommand(LCD_CLEARDISPLAY);
+ 16e:	81 e0       	ldi	r24, 0x01	; 1
+ 170:	fb df       	rcall	.-10     	; 0x168 <lcdCommand>
+ 172:	87 e5       	ldi	r24, 0x57	; 87
+ 174:	92 e0       	ldi	r25, 0x02	; 2
+ 176:	01 97       	sbiw	r24, 0x01	; 1
+ 178:	f1 f7       	brne	.-4      	; 0x176 <lcdClear+0x8>
+ 17a:	00 c0       	rjmp	.+0      	; 0x17c <lcdClear+0xe>
+ 17c:	00 00       	nop
+ 17e:	08 95       	ret
+
+00000180 <lcdDisplay>:
+	_delay_us(2000);// this command takes a long time!
+}
+
+void lcdDisplay(){
+	lcdDisplayControl |= LCD_DISPLAYON;
+ 180:	80 91 64 00 	lds	r24, 0x0064
+ 184:	98 2f       	mov	r25, r24
+ 186:	94 60       	ori	r25, 0x04	; 4
+ 188:	90 93 64 00 	sts	0x0064, r25
+	lcdCommand(LCD_DISPLAYCONTROL | lcdDisplayControl);
+ 18c:	8c 60       	ori	r24, 0x0C	; 12
+ 18e:	ec df       	rcall	.-40     	; 0x168 <lcdCommand>
+ 190:	08 95       	ret
+
+00000192 <lcdSendOnly4>:
+	setLcdPin(LCD_RW,0);
+	lcdWrite4Bits(value>>4);
+	lcdWrite4Bits(value);
+}
+
+void lcdSendOnly4(uint8_t value, uint8_t mode){
+ 192:	cf 93       	push	r28
+ 194:	c8 2f       	mov	r28, r24
+	setLcdPin(LCD_RS,mode);
+ 196:	87 e0       	ldi	r24, 0x07	; 7
+ 198:	93 df       	rcall	.-218    	; 0xc0 <setLcdPin>
+	setLcdPin(LCD_RW,0);
+ 19a:	60 e0       	ldi	r22, 0x00	; 0
+ 19c:	86 e0       	ldi	r24, 0x06	; 6
+ 19e:	90 df       	rcall	.-224    	; 0xc0 <setLcdPin>
+	lcdWrite4Bits(value>>4);
+ 1a0:	8c 2f       	mov	r24, r28
+ 1a2:	82 95       	swap	r24
+ 1a4:	8f 70       	andi	r24, 0x0F	; 15
+ 1a6:	ab df       	rcall	.-170    	; 0xfe <lcdWrite4Bits>
+	//lcdWrite4Bits(value);
+}
+ 1a8:	cf 91       	pop	r28
+ 1aa:	08 95       	ret
+
+000001ac <lcdCommand4bit>:
+void lcdWrite(uint8_t value){
+	lcdSend(value, 1);
+}
+
+void lcdCommand4bit(uint8_t value){
+	lcdSendOnly4(value,0);
+ 1ac:	60 e0       	ldi	r22, 0x00	; 0
+ 1ae:	f1 df       	rcall	.-30     	; 0x192 <lcdSendOnly4>
+ 1b0:	08 95       	ret
+
+000001b2 <initLcd>:
+*/
+
+#include "LCDShift.h"
+
+void initLcd(){
+	initShift();
+ 1b2:	3d d0       	rcall	.+122    	; 0x22e <initShift>
+	lcdFunctions = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
+ 1b4:	10 92 61 00 	sts	0x0061, r1
+	lcdDisplayControl = LCD_DISPLAYON | LCD_CURSOROFF | LCD_BLINKOFF;
+ 1b8:	84 e0       	ldi	r24, 0x04	; 4
+ 1ba:	80 93 64 00 	sts	0x0064, r24
+	lcdDisplayMode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
+ 1be:	82 e0       	ldi	r24, 0x02	; 2
+ 1c0:	80 93 60 00 	sts	0x0060, r24
+	lcdCurrentPins = 0x00;
+ 1c4:	10 92 63 00 	sts	0x0063, r1
+	lcdCurrentLine = 0;
+ 1c8:	10 92 62 00 	sts	0x0062, r1
+	setLcdFunctions(LCD_2LINE);
+ 1cc:	88 e0       	ldi	r24, 0x08	; 8
+ 1ce:	72 df       	rcall	.-284    	; 0xb4 <setLcdFunctions>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1d0:	8f e2       	ldi	r24, 0x2F	; 47
+ 1d2:	95 e7       	ldi	r25, 0x75	; 117
+ 1d4:	01 97       	sbiw	r24, 0x01	; 1
+ 1d6:	f1 f7       	brne	.-4      	; 0x1d4 <initLcd+0x22>
+ 1d8:	00 c0       	rjmp	.+0      	; 0x1da <initLcd+0x28>
+ 1da:	00 00       	nop
 	
-	//Wait before sending commands to LCD! 
+	//Wait before sending commands to LCD!
 	_delay_ms(100);
 	setLcdPin(LCD_RS,0x00);
-  e6:	60 e0       	ldi	r22, 0x00	; 0
-  e8:	87 e0       	ldi	r24, 0x07	; 7
-  ea:	df df       	rcall	.-66     	; 0xaa <setLcdPin>
+ 1dc:	60 e0       	ldi	r22, 0x00	; 0
+ 1de:	87 e0       	ldi	r24, 0x07	; 7
+ 1e0:	6f df       	rcall	.-290    	; 0xc0 <setLcdPin>
 	setLcdPin(LCD_RW,0x00);
-  ec:	60 e0       	ldi	r22, 0x00	; 0
-  ee:	86 e0       	ldi	r24, 0x06	; 6
-  f0:	dc df       	rcall	.-72     	; 0xaa <setLcdPin>
+ 1e2:	60 e0       	ldi	r22, 0x00	; 0
+ 1e4:	86 e0       	ldi	r24, 0x06	; 6
+ 1e6:	6c df       	rcall	.-296    	; 0xc0 <setLcdPin>
 	setLcdPin(LCD_ENABLE,0x00);
-  f2:	60 e0       	ldi	r22, 0x00	; 0
-  f4:	85 e0       	ldi	r24, 0x05	; 5
-  f6:	d9 df       	rcall	.-78     	; 0xaa <setLcdPin>
-  f8:	08 95       	ret
+ 1e8:	60 e0       	ldi	r22, 0x00	; 0
+ 1ea:	85 e0       	ldi	r24, 0x05	; 5
+ 1ec:	69 df       	rcall	.-302    	; 0xc0 <setLcdPin>
+	
+	lcdCommand4bit(LCD_FUNCTIONSET | lcdFunctions); // Perhaps use: lcdSendOnly4
+ 1ee:	80 91 61 00 	lds	r24, 0x0061
+ 1f2:	80 62       	ori	r24, 0x20	; 32
+ 1f4:	db df       	rcall	.-74     	; 0x1ac <lcdCommand4bit>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-000000fa <lcdWrite4Bits>:
-	setLcdPin(LCD_RW,0);
-	    //write4bits(value>>4);
-	    //write4bits(value);
-}
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1f6:	8b e8       	ldi	r24, 0x8B	; 139
+ 1f8:	9a e0       	ldi	r25, 0x0A	; 10
+ 1fa:	01 97       	sbiw	r24, 0x01	; 1
+ 1fc:	f1 f7       	brne	.-4      	; 0x1fa <initLcd+0x48>
+ 1fe:	00 c0       	rjmp	.+0      	; 0x200 <initLcd+0x4e>
+ 200:	00 00       	nop
+	_delay_us(9000); //Delay > 4.1ms
+	lcdCommand4bit(LCD_FUNCTIONSET | lcdFunctions); // Perhaps use: lcdSendOnly4
+ 202:	80 91 61 00 	lds	r24, 0x0061
+ 206:	80 62       	ori	r24, 0x20	; 32
+ 208:	d1 df       	rcall	.-94     	; 0x1ac <lcdCommand4bit>
+ 20a:	98 e7       	ldi	r25, 0x78	; 120
+ 20c:	9a 95       	dec	r25
+ 20e:	f1 f7       	brne	.-4      	; 0x20c <initLcd+0x5a>
+	_delay_us(300); // Delay > 150us
+	lcdCommand4bit(LCD_FUNCTIONSET | lcdFunctions); // Perhaps use: lcdSendOnly4
+ 210:	80 91 61 00 	lds	r24, 0x0061
+ 214:	80 62       	ori	r24, 0x20	; 32
+ 216:	ca df       	rcall	.-108    	; 0x1ac <lcdCommand4bit>
+	
+	lcdCommand4bit(LCD_FUNCTIONSET | lcdFunctions);
+ 218:	80 91 61 00 	lds	r24, 0x0061
+ 21c:	80 62       	ori	r24, 0x20	; 32
+ 21e:	c6 df       	rcall	.-116    	; 0x1ac <lcdCommand4bit>
+	lcdDisplay();
+ 220:	af df       	rcall	.-162    	; 0x180 <lcdDisplay>
+	lcdClear();
+ 222:	a5 df       	rcall	.-182    	; 0x16e <lcdClear>
+	
+	// set the entry mode
+	lcdCommand(LCD_ENTRYMODESET | lcdDisplayMode);
+ 224:	80 91 60 00 	lds	r24, 0x0060
+ 228:	84 60       	ori	r24, 0x04	; 4
+ 22a:	9e df       	rcall	.-196    	; 0x168 <lcdCommand>
+ 22c:	08 95       	ret
 
-void lcdWrite4Bits(uint8_t value){
-  fa:	af 92       	push	r10
-  fc:	bf 92       	push	r11
-  fe:	cf 92       	push	r12
- 100:	df 92       	push	r13
- 102:	ef 92       	push	r14
- 104:	ff 92       	push	r15
- 106:	0f 93       	push	r16
- 108:	1f 93       	push	r17
- 10a:	cf 93       	push	r28
- 10c:	df 93       	push	r29
- 10e:	a8 2e       	mov	r10, r24
-	for (int i = 0; i < 8; i++) {
- 110:	c0 e0       	ldi	r28, 0x00	; 0
- 112:	d0 e0       	ldi	r29, 0x00	; 0
-		uint8_t tmp = getNthByte(value,i);
-		uint8_t tmp2 = (value >> i) & 0x01;
- 114:	e8 2e       	mov	r14, r24
- 116:	f1 2c       	mov	r15, r1
-	    //write4bits(value);
-}
-
-void lcdWrite4Bits(uint8_t value){
-	for (int i = 0; i < 8; i++) {
-		uint8_t tmp = getNthByte(value,i);
- 118:	6c 2f       	mov	r22, r28
- 11a:	8a 2d       	mov	r24, r10
- 11c:	91 df       	rcall	.-222    	; 0x40 <getNthByte>
- 11e:	b8 2e       	mov	r11, r24
-		uint8_t tmp2 = (value >> i) & 0x01;
- 120:	87 01       	movw	r16, r14
- 122:	0c 2e       	mov	r0, r28
- 124:	02 c0       	rjmp	.+4      	; 0x12a <lcdWrite4Bits+0x30>
- 126:	15 95       	asr	r17
- 128:	07 95       	ror	r16
- 12a:	0a 94       	dec	r0
- 12c:	e2 f7       	brpl	.-8      	; 0x126 <lcdWrite4Bits+0x2c>
- 12e:	80 2f       	mov	r24, r16
- 130:	81 70       	andi	r24, 0x01	; 1
- 132:	d8 2e       	mov	r13, r24
-		uint8_t tmp3 = (value >> i);
-		uint8_t tmp4 = tmp3 & 0x01;
-		if(tmp4==1){
- 134:	cd 2c       	mov	r12, r13
- 136:	00 ff       	sbrs	r16, 0
- 138:	04 c0       	rjmp	.+8      	; 0x142 <lcdWrite4Bits+0x48>
-			setLcdPin(LCD_RS,tmp2);
- 13a:	6d 2d       	mov	r22, r13
- 13c:	87 e0       	ldi	r24, 0x07	; 7
- 13e:	b5 df       	rcall	.-150    	; 0xaa <setLcdPin>
- 140:	03 c0       	rjmp	.+6      	; 0x148 <lcdWrite4Bits+0x4e>
-		}else{
-			setLcdPin(LCD_RS,tmp2);
- 142:	6d 2d       	mov	r22, r13
- 144:	87 e0       	ldi	r24, 0x07	; 7
- 146:	b1 df       	rcall	.-158    	; 0xaa <setLcdPin>
-		}
-		setLcdPin(LCD_ENABLE,tmp);
- 148:	6b 2d       	mov	r22, r11
- 14a:	85 e0       	ldi	r24, 0x05	; 5
- 14c:	ae df       	rcall	.-164    	; 0xaa <setLcdPin>
-		setLcdPin(LCD_RS,tmp2);
- 14e:	6d 2d       	mov	r22, r13
- 150:	87 e0       	ldi	r24, 0x07	; 7
- 152:	ab df       	rcall	.-170    	; 0xaa <setLcdPin>
-		setLcdPin(LCD_RS,tmp3);
- 154:	60 2f       	mov	r22, r16
- 156:	87 e0       	ldi	r24, 0x07	; 7
- 158:	a8 df       	rcall	.-176    	; 0xaa <setLcdPin>
-		setLcdPin(LCD_RS,tmp4);
- 15a:	6c 2d       	mov	r22, r12
- 15c:	87 e0       	ldi	r24, 0x07	; 7
- 15e:	a5 df       	rcall	.-182    	; 0xaa <setLcdPin>
-	    //write4bits(value>>4);
-	    //write4bits(value);
-}
-
-void lcdWrite4Bits(uint8_t value){
-	for (int i = 0; i < 8; i++) {
- 160:	21 96       	adiw	r28, 0x01	; 1
- 162:	c8 30       	cpi	r28, 0x08	; 8
- 164:	d1 05       	cpc	r29, r1
- 166:	c1 f6       	brne	.-80     	; 0x118 <lcdWrite4Bits+0x1e>
-		  pinMode(_data_pins[i], OUTPUT);
-		  digitalWrite(_data_pins[i], (value >> i) & 0x01);
-	  }*/
-	  
-	  //pulseEnable();
-}
- 168:	df 91       	pop	r29
- 16a:	cf 91       	pop	r28
- 16c:	1f 91       	pop	r17
- 16e:	0f 91       	pop	r16
- 170:	ff 90       	pop	r15
- 172:	ef 90       	pop	r14
- 174:	df 90       	pop	r13
- 176:	cf 90       	pop	r12
- 178:	bf 90       	pop	r11
- 17a:	af 90       	pop	r10
- 17c:	08 95       	ret
-
-0000017e <initShift>:
+0000022e <initShift>:
 */
 
 #include "Shift74hc595.h"
 
 void initShift(){
 	DDRB |= (1 << SHIFT_LATCH);
- 17e:	b8 9a       	sbi	0x17, 0	; 23
+ 22e:	b8 9a       	sbi	0x17, 0	; 23
 	DDRB |= (1 << SHIFT_CLCK);
- 180:	b9 9a       	sbi	0x17, 1	; 23
+ 230:	b9 9a       	sbi	0x17, 1	; 23
 	DDRB |= (1 << SHIFT_DATA);
- 182:	ba 9a       	sbi	0x17, 2	; 23
+ 232:	ba 9a       	sbi	0x17, 2	; 23
 	
 	PORTB &= ~(1 << SHIFT_LATCH);
- 184:	c0 98       	cbi	0x18, 0	; 24
+ 234:	c0 98       	cbi	0x18, 0	; 24
 	PORTB &= ~(1 << SHIFT_CLCK);
- 186:	c1 98       	cbi	0x18, 1	; 24
+ 236:	c1 98       	cbi	0x18, 1	; 24
 	PORTB &= ~(1 << SHIFT_DATA);
- 188:	c2 98       	cbi	0x18, 2	; 24
- 18a:	08 95       	ret
+ 238:	c2 98       	cbi	0x18, 2	; 24
+ 23a:	08 95       	ret
 
-0000018c <writeBytesRCLK>:
+0000023c <writeBytesRCLK>:
 
 void writeBytes(uint8_t value){
 	writeBytesRCLK(value,0x01);
 }
 
 void writeBytesRCLK(uint8_t value, uint8_t pushRCLK){
- 18c:	1f 93       	push	r17
- 18e:	cf 93       	push	r28
- 190:	df 93       	push	r29
- 192:	d8 2f       	mov	r29, r24
- 194:	16 2f       	mov	r17, r22
+ 23c:	1f 93       	push	r17
+ 23e:	cf 93       	push	r28
+ 240:	df 93       	push	r29
+ 242:	d8 2f       	mov	r29, r24
+ 244:	16 2f       	mov	r17, r22
 	if(pushRCLK==1){
- 196:	61 30       	cpi	r22, 0x01	; 1
- 198:	99 f4       	brne	.+38     	; 0x1c0 <writeBytesRCLK+0x34>
+ 246:	61 30       	cpi	r22, 0x01	; 1
+ 248:	99 f4       	brne	.+38     	; 0x270 <writeBytesRCLK+0x34>
 		PORTB &= ~(1 << SHIFT_LATCH);
- 19a:	c0 98       	cbi	0x18, 0	; 24
- 19c:	11 c0       	rjmp	.+34     	; 0x1c0 <writeBytesRCLK+0x34>
+ 24a:	c0 98       	cbi	0x18, 0	; 24
+ 24c:	11 c0       	rjmp	.+34     	; 0x270 <writeBytesRCLK+0x34>
 	}
 	for(uint8_t i=0;i<8;i++){
 		PORTB &= ~(1 << SHIFT_CLCK);
- 19e:	c1 98       	cbi	0x18, 1	; 24
+ 24e:	c1 98       	cbi	0x18, 1	; 24
 		if(getNthByte(value,i)==0){
- 1a0:	6c 2f       	mov	r22, r28
- 1a2:	8d 2f       	mov	r24, r29
- 1a4:	4d df       	rcall	.-358    	; 0x40 <getNthByte>
- 1a6:	81 11       	cpse	r24, r1
- 1a8:	02 c0       	rjmp	.+4      	; 0x1ae <writeBytesRCLK+0x22>
+ 250:	6c 2f       	mov	r22, r28
+ 252:	8d 2f       	mov	r24, r29
+ 254:	00 df       	rcall	.-512    	; 0x56 <getNthByte>
+ 256:	81 11       	cpse	r24, r1
+ 258:	02 c0       	rjmp	.+4      	; 0x25e <writeBytesRCLK+0x22>
 			PORTB &= ~(1 << SHIFT_DATA);
- 1aa:	c2 98       	cbi	0x18, 2	; 24
- 1ac:	01 c0       	rjmp	.+2      	; 0x1b0 <writeBytesRCLK+0x24>
+ 25a:	c2 98       	cbi	0x18, 2	; 24
+ 25c:	01 c0       	rjmp	.+2      	; 0x260 <writeBytesRCLK+0x24>
 			}else{
 			PORTB |= (1 << SHIFT_DATA);
- 1ae:	c2 9a       	sbi	0x18, 2	; 24
+ 25e:	c2 9a       	sbi	0x18, 2	; 24
 		}
 		PORTB |= (1 << SHIFT_CLCK);
- 1b0:	c1 9a       	sbi	0x18, 1	; 24
+ 260:	c1 9a       	sbi	0x18, 1	; 24
 
 void writeBytesRCLK(uint8_t value, uint8_t pushRCLK){
 	if(pushRCLK==1){
 		PORTB &= ~(1 << SHIFT_LATCH);
 	}
 	for(uint8_t i=0;i<8;i++){
- 1b2:	cf 5f       	subi	r28, 0xFF	; 255
- 1b4:	c8 30       	cpi	r28, 0x08	; 8
- 1b6:	99 f7       	brne	.-26     	; 0x19e <writeBytesRCLK+0x12>
+ 262:	cf 5f       	subi	r28, 0xFF	; 255
+ 264:	c8 30       	cpi	r28, 0x08	; 8
+ 266:	99 f7       	brne	.-26     	; 0x24e <writeBytesRCLK+0x12>
 			}else{
 			PORTB |= (1 << SHIFT_DATA);
 		}
 		PORTB |= (1 << SHIFT_CLCK);
 	}
 	if(pushRCLK==1){
- 1b8:	11 30       	cpi	r17, 0x01	; 1
- 1ba:	21 f4       	brne	.+8      	; 0x1c4 <writeBytesRCLK+0x38>
+ 268:	11 30       	cpi	r17, 0x01	; 1
+ 26a:	21 f4       	brne	.+8      	; 0x274 <writeBytesRCLK+0x38>
 		PORTB |= (1 << SHIFT_LATCH);
- 1bc:	c0 9a       	sbi	0x18, 0	; 24
- 1be:	02 c0       	rjmp	.+4      	; 0x1c4 <writeBytesRCLK+0x38>
+ 26c:	c0 9a       	sbi	0x18, 0	; 24
+ 26e:	02 c0       	rjmp	.+4      	; 0x274 <writeBytesRCLK+0x38>
 
 void writeBytes(uint8_t value){
 	writeBytesRCLK(value,0x01);
 }
 
 void writeBytesRCLK(uint8_t value, uint8_t pushRCLK){
- 1c0:	c0 e0       	ldi	r28, 0x00	; 0
- 1c2:	ed cf       	rjmp	.-38     	; 0x19e <writeBytesRCLK+0x12>
+ 270:	c0 e0       	ldi	r28, 0x00	; 0
+ 272:	ed cf       	rjmp	.-38     	; 0x24e <writeBytesRCLK+0x12>
 		PORTB |= (1 << SHIFT_CLCK);
 	}
 	if(pushRCLK==1){
 		PORTB |= (1 << SHIFT_LATCH);
 	}
- 1c4:	df 91       	pop	r29
- 1c6:	cf 91       	pop	r28
- 1c8:	1f 91       	pop	r17
- 1ca:	08 95       	ret
+ 274:	df 91       	pop	r29
+ 276:	cf 91       	pop	r28
+ 278:	1f 91       	pop	r17
+ 27a:	08 95       	ret
 
-000001cc <writeBytes>:
+0000027c <writeBytes>:
 	PORTB &= ~(1 << SHIFT_CLCK);
 	PORTB &= ~(1 << SHIFT_DATA);
 }
 
 void writeBytes(uint8_t value){
 	writeBytesRCLK(value,0x01);
- 1cc:	61 e0       	ldi	r22, 0x01	; 1
- 1ce:	de df       	rcall	.-68     	; 0x18c <writeBytesRCLK>
- 1d0:	08 95       	ret
+ 27c:	61 e0       	ldi	r22, 0x01	; 1
+ 27e:	de df       	rcall	.-68     	; 0x23c <writeBytesRCLK>
+ 280:	08 95       	ret
 
-000001d2 <main>:
+00000282 <main>:
 	eeprom_write_byte(&sstate, rand());
 }*/
 
 int main(void)
 {
 	initLcd();
- 1d2:	7a df       	rcall	.-268    	; 0xc8 <initLcd>
-	lcdWrite4Bits(128);
- 1d4:	80 e8       	ldi	r24, 0x80	; 128
- 1d6:	91 df       	rcall	.-222    	; 0xfa <lcdWrite4Bits>
-	{
-		writeBytes(63);
-		_delay_ms(1000);
-	}*/
-	return 0;
-}
- 1d8:	80 e0       	ldi	r24, 0x00	; 0
- 1da:	90 e0       	ldi	r25, 0x00	; 0
- 1dc:	08 95       	ret
+ 282:	97 df       	rcall	.-210    	; 0x1b2 <initLcd>
+	//initShift();
+	while(1){
+		asm ("nop");
+ 284:	00 00       	nop
+ 286:	fe cf       	rjmp	.-4      	; 0x284 <main+0x2>
 
-000001de <_exit>:
- 1de:	f8 94       	cli
+00000288 <_exit>:
+ 288:	f8 94       	cli
 
-000001e0 <__stop_program>:
- 1e0:	ff cf       	rjmp	.-2      	; 0x1e0 <__stop_program>
+0000028a <__stop_program>:
+ 28a:	ff cf       	rjmp	.-2      	; 0x28a <__stop_program>

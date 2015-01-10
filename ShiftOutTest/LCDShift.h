@@ -32,10 +32,10 @@
 #define LCD_RS LCD_QA
 #define LCD_RW LCD_QB
 #define LCD_ENABLE LCD_QC
-#define LCD_D1 LCD_QD
-#define LCD_D2 LCD_QE
-#define LCD_D3 LCD_QF
-#define LCD_D4 LCD_QG
+#define LCD_D4 LCD_QD
+#define LCD_D5 LCD_QE
+#define LCD_D6 LCD_QF
+#define LCD_D7 LCD_QG
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
@@ -78,12 +78,21 @@
 uint8_t lcdCurrentPins;
 uint8_t lcdCurrentLine;
 uint8_t lcdFunctions;
+uint8_t lcdDisplayControl;
+uint8_t lcdDisplayMode;
 
 void initLcd();
 void setLcdFunctions(uint8_t func);
 void setLcdPin(uint8_t pin,uint8_t val);
 void lcdSend(uint8_t value, uint8_t mode);
+void lcdSendOnly4(uint8_t value, uint8_t mode);
 void lcdWrite4Bits(uint8_t value);
+void lcdPulseEnable();
+void lcdCommand(uint8_t value);
+void lcdCommand4bit(uint8_t value);
+void lcdWrite(uint8_t value);
+void lcdDisplay();
+void lcdClear();
 
 
 #endif /* LCDSHIFT_H_ */
