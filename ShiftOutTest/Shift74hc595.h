@@ -11,23 +11,9 @@
 
 #include "ByteOperations.h"
 
-//Why this has to be defined here, but not in ShiftOutTest ?
 #define SHIFT_CLCK PB1
 #define SHIFT_LATCH PB0
 #define SHIFT_DATA PB2
-
-//Why this is showing before ShiftOutTest.c is compiled ?
-/*#ifndef SHIFT_CLCK
-	#error SHIFT_CLCK is not defined
-#endif
-
-#ifndef SHIFT_LATCH
-	#error SHIFT_LATCH is not defined
-#endif
-
-#ifndef SHIFT_DATA
-	#error SHIFT_DATA is not defined
-#endif*/
 
 void initShift();
 /* 8 is lowest byte */

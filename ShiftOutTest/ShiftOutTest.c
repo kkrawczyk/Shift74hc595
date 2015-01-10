@@ -38,12 +38,24 @@
 /** project pinology
 ATTINY:
 	4 -> GND
+	5 (PB0) -> 12 (RCLK (LATCH) )
+	6 (PB1) -> 11 (SRCLK)
+	7 (PB2) -> 14 (SER (data))
 	8 -> VDD
+	
+SHIFT REGISTER:
+	QA -> RS
+	QB -> NONE (OR RW - but not used yet)
+	QC -> ENABLE
+	QD -> D4
+	QE -> D5
+	QF -> D6
+	QG -> D7
+	QH -> NONE
 **/
 int main(void)
 {
 	initLcd();
-	//initShift();
 	int blink = 0;
 	while(1){
 		ldcSetCursorBlinking(blink);
@@ -64,14 +76,5 @@ int main(void)
 		lcdWriteText("IT WORKS!");
 		_delay_ms(5000);
 	}
-	//lcdWrite4Bits(128);
-	//initRand();
-	/*initShift();
-	initLcd();
-	while(1)
-	{
-		writeBytes(63);
-		_delay_ms(1000);
-	}*/
-	//return 0;
+	return 0;
 }
