@@ -26,11 +26,8 @@ Discarded input sections
  .text          0x00000000        0x0 LCDShift.o
  .data          0x00000000        0x0 LCDShift.o
  .bss           0x00000000        0x0 LCDShift.o
- .text.lcdWrite
-                0x00000000        0x4 LCDShift.o
- .rodata        0x00000000        0x8 LCDShift.o
- .text.lcdSetCursor
-                0x00000000       0x58 LCDShift.o
+ .text.lcdSetAutoscroll
+                0x00000000       0x1a LCDShift.o
  .text          0x00000000        0x0 Shift74hc595.o
  .data          0x00000000        0x0 Shift74hc595.o
  .bss           0x00000000        0x0 Shift74hc595.o
@@ -204,7 +201,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x248
+.text           0x00000000      0x338
  *(.vectors)
  .vectors       0x00000000       0x1e c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr25/crttn45.o
                 0x00000000                __vector_default
@@ -301,40 +298,55 @@ END GROUP
                 0x000000ee                lcdWrite4Bits
  .text.lcdSend  0x00000138       0x1c LCDShift.o
                 0x00000138                lcdSend
- .text.lcdCommand
+ .text.lcdWrite
                 0x00000154        0x4 LCDShift.o
-                0x00000154                lcdCommand
+                0x00000154                lcdWrite
+ .text.lcdWriteText
+                0x00000158       0x16 LCDShift.o
+                0x00000158                lcdWriteText
+ .text.lcdCommand
+                0x0000016e        0x4 LCDShift.o
+                0x0000016e                lcdCommand
+ .text.ldcSetCursorBlinking
+                0x00000172       0x1a LCDShift.o
+                0x00000172                ldcSetCursorBlinking
+ .text.lcdSetCursor
+                0x0000018c       0x58 LCDShift.o
+                0x0000018c                lcdSetCursor
  .text.lcdClear
-                0x00000158       0x12 LCDShift.o
-                0x00000158                lcdClear
+                0x000001e4       0x12 LCDShift.o
+                0x000001e4                lcdClear
  .text.lcdDisplay
-                0x0000016a       0x10 LCDShift.o
-                0x0000016a                lcdDisplay
+                0x000001f6       0x10 LCDShift.o
+                0x000001f6                lcdDisplay
+ .text.lcdSetCursorVisible
+                0x00000206       0x1a LCDShift.o
+                0x00000206                lcdSetCursorVisible
  .text.lcdSendOnly4
-                0x0000017a       0x18 LCDShift.o
-                0x0000017a                lcdSendOnly4
+                0x00000220       0x18 LCDShift.o
+                0x00000220                lcdSendOnly4
  .text.lcdCommand4bit
-                0x00000192        0x4 LCDShift.o
-                0x00000192                lcdCommand4bit
- .text.initLcd  0x00000196       0x5c LCDShift.o
-                0x00000196                initLcd
+                0x00000238        0x4 LCDShift.o
+                0x00000238                lcdCommand4bit
+ .text.initLcd  0x0000023c       0x4c LCDShift.o
+                0x0000023c                initLcd
  .text.initShift
-                0x000001f2        0xe Shift74hc595.o
-                0x000001f2                initShift
+                0x00000288        0xe Shift74hc595.o
+                0x00000288                initShift
  .text.writeBytesRCLK
-                0x00000200       0x3a Shift74hc595.o
-                0x00000200                writeBytesRCLK
+                0x00000296       0x3a Shift74hc595.o
+                0x00000296                writeBytesRCLK
  .text.writeBytes
-                0x0000023a        0x4 Shift74hc595.o
-                0x0000023a                writeBytes
+                0x000002d0        0x4 Shift74hc595.o
+                0x000002d0                writeBytes
  .text.startup.main
-                0x0000023e        0x6 ShiftOutTest.o
-                0x0000023e                main
-                0x00000244                . = ALIGN (0x2)
+                0x000002d4       0x60 ShiftOutTest.o
+                0x000002d4                main
+                0x00000334                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000244        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
-                0x00000244                _exit
-                0x00000244                exit
+ .fini9         0x00000334        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
+                0x00000334                _exit
+                0x00000334                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -353,42 +365,46 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000244        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
+ .fini0         0x00000334        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000248                _etext = .
+                0x00000338                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000248
+.data           0x00800060       0x26 load address 0x00000338
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
+ .rodata        0x00800060        0x8 LCDShift.o
  *(.rodata*)
+ .rodata.str1.1
+                0x00800068       0x1d ShiftOutTest.o
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x00800086                . = ALIGN (0x2)
+ *fill*         0x00800085        0x1 
+                0x00800086                _edata = .
+                0x00800086                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x5
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x00800086        0x5
+                0x00800086                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
- COMMON         0x00800060        0x5 LCDShift.o
-                0x00800060                lcdDisplayMode
-                0x00800061                lcdFunctions
-                0x00800062                lcdCurrentLine
-                0x00800063                lcdCurrentPins
-                0x00800064                lcdDisplayControl
-                0x00800065                PROVIDE (__bss_end, .)
-                0x00000248                __data_load_start = LOADADDR (.data)
-                0x00000248                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800086        0x5 LCDShift.o
+                0x00800086                lcdDisplayMode
+                0x00800087                lcdFunctions
+                0x00800088                lcdCurrentLine
+                0x00800089                lcdCurrentPins
+                0x0080008a                lcdDisplayControl
+                0x0080008b                PROVIDE (__bss_end, .)
+                0x00000338                __data_load_start = LOADADDR (.data)
+                0x0000035e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800065        0x0
-                0x00800065                PROVIDE (__noinit_start, .)
+.noinit         0x0080008b        0x0
+                0x0080008b                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800065                PROVIDE (__noinit_end, .)
-                0x00800065                _end = .
-                0x00800065                PROVIDE (__heap_start, .)
+                0x0080008b                PROVIDE (__noinit_end, .)
+                0x0080008b                _end = .
+                0x0080008b                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

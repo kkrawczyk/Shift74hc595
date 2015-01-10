@@ -39,8 +39,25 @@ int main(void)
 {
 	initLcd();
 	//initShift();
+	int blink = 0;
 	while(1){
-		asm ("nop");
+		ldcSetCursorBlinking(blink);
+		lcdSetCursorVisible(blink);
+		if(blink==1){
+			blink = 0;
+		}else{
+			blink = 1;
+		}
+		lcdClear();
+		lcdSetCursor(0,0);
+		lcdWriteText("NOVA-IT");
+		lcdSetCursor(0,1);
+		lcdWriteText("K.KRAWCZYK");
+		_delay_ms(5000);
+		lcdClear();
+		lcdSetCursor(0,0);
+		lcdWriteText("IT WORKS!");
+		_delay_ms(5000);
 	}
 	//lcdWrite4Bits(128);
 	//initRand();

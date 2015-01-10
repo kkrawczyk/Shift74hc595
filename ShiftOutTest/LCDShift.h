@@ -90,9 +90,15 @@ void lcdWrite4Bits(uint8_t value);
 void lcdPulseEnable();
 void lcdCommand(uint8_t value);
 void lcdCommand4bit(uint8_t value);
-void lcdWrite(uint8_t value);
+void lcdSetCursor(uint8_t col, uint8_t row);
 void lcdDisplay();
 void lcdClear();
+//High level functions
+void ldcSetCursorBlinking(uint8_t val);
+void lcdWrite(uint8_t value);
+void lcdWriteText(const char *s);
+void lcdSetAutoscroll(uint8_t val); //Doesn't work yet!
+void lcdSetCursorVisible(uint8_t val);
 
 
 #endif /* LCDSHIFT_H_ */
